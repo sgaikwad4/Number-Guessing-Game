@@ -1,10 +1,22 @@
+import random
 # Greet the user and ask their name
 print("Hello and welcome to the Number Guessing Game!")
-name = input("What's your name? ").strip().title()
+name = input("What's your name?\n").strip().title()
 
 # Explain game
 print(f"Hello, {name}")
-print("This game will choose a random number from 1-100. You'll be given 6 guesses. Don't worry I'll give hints ")
+print("This game will choose a random number from 1-100. You'll be given 6 guesses. Don't worry I'll give you hints ")
+
 # Choose a random number
+rand_num = random.randint(1,100)
+
+# Ask user for a number
+user_num = int(input("Guess a number between 1 and 100:\n").strip())
+if user_num == rand_num:
+    print("Correct")
+elif user_num > rand_num:
+    print("Too high")
+elif user_num < rand_num:
+    print("Too low")
 # Make a loop for the amount of guesses
 # Ask to play again
