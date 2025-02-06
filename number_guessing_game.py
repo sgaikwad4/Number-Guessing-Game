@@ -10,13 +10,24 @@ print("This game will choose a random number from 1-100. You'll be given 6 guess
 # Choose a random number
 rand_num = random.randint(1,100)
 
-# Ask user for a number
-user_num = int(input("Guess a number between 1 and 100:\n").strip())
-if user_num == rand_num:
-    print("Correct")
-elif user_num > rand_num:
-    print("Too high")
-elif user_num < rand_num:
-    print("Too low")
 # Make a loop for the amount of guesses
+for turns in range(6):
+    # Print amount of guesses left
+    print(f"\nYou have {6-turns} guesses left")  
+    while True:
+        try:
+            # Ask user for a number
+            user_num = int(input("Guess a number between 1 and 100:\n").strip())
+            if user_num == rand_num:
+                print("You got the number correct")
+                break
+            elif user_num > rand_num:
+                print("Too high")
+            elif user_num < rand_num:
+                print("Too low")
+            else:
+                print(f"Ha, you lost. The number was {rand_num}")
+        except ValueError:
+            print("Invalid input.")
+
 # Ask to play again
